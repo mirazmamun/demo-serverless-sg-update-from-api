@@ -1,0 +1,33 @@
+service: 
+  name: update-from-github
+frameworkVersion: ">=1.1.0 <2.0.0"
+plugins:
+  - serverless-offline-scheduler
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage, 'dev'} # Set the default stage used. Default is dev
+  region: ${opt:region, 'ap-southeast-2'} # Overwrite the default region used. Default is us-east-1
+  apiName: ${self:service.name} # Use a custom name for the API Gateway API
+  memorySize: 512 # Overwrite the default memory size. Default is 1024
+  timeout: 10 # The default is 6 seconds. Note: API Gateway current maximum is 30 seconds
+  logRetentionInDays: ${opt:retention,'1'} # Set the default RetentionInDays for a CloudWatch LogGroup
+  apiKeys: # List of API keys to be used by your service API Gateway REST API
+    - ${self:service.name}
+  iamRoleStatements: # IAM role statements so that services can be accessed in the AWS account
+    - Effect: 'Allow'
+      Action:
+        - 'ec2:*'
+      Resource: 
+        - '*'
+
+functions:
+  update:
+    handler: handler.run
+    name: ${self:service.name}-lambda
+    environment: # Function level environment variables
+      SG_GITHUB_UPDATE: SG_GITHUB_UPDATE,
+      API_URL_GITHUB: https://api.github.com/meta
+    events:
+      # Invoke Lambda function every minute
+      - schedule: rate(1 minute)
