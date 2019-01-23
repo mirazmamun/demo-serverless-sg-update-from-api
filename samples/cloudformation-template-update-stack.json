@@ -102,7 +102,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/update-from-github/dev/1547984183598-2019-01-20T11:36:23.598Z/update-from-github.zip"
+          "S3Key": "serverless/update-from-github/dev/1548149562754-2019-01-22T09:32:42.754Z/update-from-github.zip"
         },
         "FunctionName": "update-from-github-lambda",
         "Handler": "handler.run",
@@ -127,14 +127,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "UpdateLambdaVersionOCFxoQFpriqwUFFa7fXvF3JcIxdexs4SfTQ3qdyLEjY": {
+    "UpdateLambdaVersioncBeUrXnHzCoy13MDnn86bAaoAQf2xpKr9GbMTpZU0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdateLambdaFunction"
         },
-        "CodeSha256": "bpdkPWIe3j/tmyS1q6EM+1wTj3T4IMzbDrFGRYGqtTo="
+        "CodeSha256": "hZnvZ6k6OJOTPiSswQl1Dv23m6zfYTmnsap0Y/Vcalo="
       }
     },
     "UpdateEventsRuleSchedule1": {
@@ -194,7 +194,7 @@
     "UpdateLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdateLambdaVersionOCFxoQFpriqwUFFa7fXvF3JcIxdexs4SfTQ3qdyLEjY"
+        "Ref": "UpdateLambdaVersioncBeUrXnHzCoy13MDnn86bAaoAQf2xpKr9GbMTpZU0"
       }
     }
   }

@@ -8,7 +8,6 @@ provider:
   runtime: nodejs8.10
   stage: ${opt:stage, 'dev'} # Set the default stage used. Default is dev
   region: ${opt:region, 'ap-southeast-2'} # Overwrite the default region used. Default is us-east-1
-  apiName: ${self:service.name} # Use a custom name for the API Gateway API
   memorySize: 512 # Overwrite the default memory size. Default is 1024
   timeout: 10 # The default is 6 seconds. Note: API Gateway current maximum is 30 seconds
   logRetentionInDays: ${opt:retention,'1'} # Set the default RetentionInDays for a CloudWatch LogGroup
