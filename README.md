@@ -26,3 +26,7 @@ There are two ways you can provision the stack. First one uses built CF template
 2. Make sure you have setup your AWS credentials that will have privilege to create the resources required by CF Template. Checkout the docs [here](https://serverless.com/framework/docs/providers/aws/guide/credentials#using-aws-access-keys)
 3. The default setup will take care of linking executable in POSIX environment. Alternatively you can install `serverless` globally. `npm install -g serverless` or checkout [this link](https://serverless.com/framework/docs/providers/aws/guide/quick-start#pre-requisites)
 4. Run ```./node_modules/.bin/serverless deploy``` or is `serverless` is globally available in you environment, run ```serverless deploy```. This command will create the CF template locally and will create the CF stack in the target region. If you want to take the CF template yourself then modify and run it try ```serverless package --package <target folder to create packages to>```. Try the [docs](https://serverless.com/framework/docs/providers/aws/guide/packaging/) to learn more.
+
+## Unit Tests
+
+This project is equipped with `mocha` and `chaijs` assertion to test some library function used in Lambda handler and they are under `tests/unit` folder. To test those just run `./node_modules/.bin/mocha <relative path of test spec>`
